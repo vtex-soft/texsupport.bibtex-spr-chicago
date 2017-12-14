@@ -1,0 +1,6 @@
+#+TITLE: spr-chicago bibliography style
+
+#+BEGIN_EXAMPLE
+\bibliographystyle{spr-chicago}
+\bibliography{<bib-file>}
+#+END_EXAMPLE

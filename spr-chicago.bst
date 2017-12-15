@@ -1421,15 +1421,38 @@ FUNCTION {format.url}
 
 
 
+FUNCTION {fix.doi.doimain}{
+  't := % content
+  t text.length$ #10 >
+    {
+      t #1 #10 substring$ "http://dx." = 
+        {
+          "https://" t #11 global.max$ substring$ * 't :=
+        }
+        {
+          t #1 #4 substring$ "http" = 
+            'skip$
+            { "https://doi.org/" t * 't := }
+          if$
+        }
+      if$ 
+    }
+    'skip$
+  if$ 
+  t 
+}
+
+
+% Ensuring "https://doi.org/" at begin of doi
 FUNCTION {format.doi}
 { doi empty$
-	{""}
-	{
-	 "nodoi" is.in.list
-    	{""}
-  	   	{"doi:\doiurl{" doi * "}" *}
-     if$
-	}
+    {""}
+    {
+      "nodoi" is.in.list
+        {""}
+        { "\doiurl{" doi fix.doi.doimain * "}" * }
+      if$
+    }
   if$
 }
 
@@ -2643,7 +2666,7 @@ REVERSE {reverse.pass}
 
 FUNCTION {write.preamble}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-	"% BibTex style file: spr-chicago.bst, 2011-02-21" write$ newline$
+	"% BibTex style file: spr-chicago.bst, 2017-12-15" write$ newline$
 	"\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi" write$ newline$
 	"\ifx \binits  \undefined \def \binits#1{#1} \fi" write$ newline$
 	"\ifx \bauthor  \undefined \def \bauthor#1{#1} \fi" write$ newline$

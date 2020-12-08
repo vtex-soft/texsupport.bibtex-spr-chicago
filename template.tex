@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % This is a general template file for the LaTeX package SVJour3
-% for Springer journals.          Springer Heidelberg 2006/03/15
+% for Springer journals.          Springer Heidelberg 2010/09/16
 %
 % Copy it to a new file with a new name and use it as the basis
 % for your article. Delete % signs as needed.
@@ -36,9 +36,12 @@ stroke
 grestore
 \end{filecontents*}
 %
+\RequirePackage{fix-cm}
+%
 \documentclass[natbib]{svjour3}                     % onecolumn (standard format)
-%\documentclass[smallextended]{svjour3}     % onecolumn (second format)
-%\documentclass[twocolumn]{svjour3}         % twocolumn
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+%\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
 %
 \smartqed  % flush right qed marks, e.g. at end of proof
 %
@@ -109,7 +112,7 @@ subject classification numbers as needed.
 Your text comes here. Separate text sections with
 \section{Section title}
 \label{sec:1}
-Text with citations \cite{RefB} and \cite{RefJ}.
+Text with citations \cite{RefJ}, \cite{RefB} and \cite{RefP}.
 \subsection{Subsection title}
 \label{sec:2}
 as required. Don't forget to give each section
@@ -161,10 +164,20 @@ number & number & number \\
 %and remove the percent signs.
 %\end{acknowledgements}
 
+
+% Authors must disclose all relationships or interests that 
+% could have direct or potential influence or impart bias on 
+% the work: 
+%
+% \section*{Conflict of interest}
+%
+% The authors declare that they have no conflict of interest.
+
+
 % BibTeX users please use one of
 \bibliographystyle{spr-chicago}      % Chicago style, author-year citations
 \bibliography{example}   % name your BibTeX data base
-\nocite{*}
+\nocite{*}                            % generate bibliography entries for every entry in each bib
 
 % Non-BibTeX users please use
 \begin{thebibliography}{}
@@ -179,17 +192,19 @@ Aamport, L. A. 1986. The gnats and gnus document preparation system.
 This is a full ARTICLE entry.
 
 % Format for books
-\bibitem[\protect\citeauthoryear{Knuth}{1981}]{book-full}
+\bibitem[\protect\citeauthoryear{Knuth}{1981}]{RefB}
 Knuth, D. E. 1981. \textit{Seminumerical algorithms}, 2nd edn.
 Vol 2 of \textit{The art of computer programming}. Reading, Massachusetts:
-Addison-Wesley. This is a full BOOK entry.
+Addison-Wesley. 
+This is a full BOOK entry.
 
 % Format for proceedings
-\bibitem[\protect\citeauthoryear{Oz and Yannakakis}{1983}]{RefB}
+\bibitem[\protect\citeauthoryear{Oz and Yannakakis}{1983}]{RefP}
 Oz, Wizard~V., and Mihalis Yannakakis, eds. 1983. 
 Proc. fifteenth annual symposium on the theory of computing,
 \textit{All ACM conferences}. Boston: Academic Press.
 This is a full PROCEEDINGS entry.
+
 % Other formats available: INPROCEEDINGS, PHDTHESIS, TECHREPORT, 
 % UNPUBLISHED, MISC, MASTERSTHESIS, MANUAL, INCOLLECTION, BOOKLET
 % etc

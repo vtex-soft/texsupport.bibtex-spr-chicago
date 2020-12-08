@@ -1,6 +1,6 @@
 %% This is file `spr-chicago.bst'
 %%
-%% Please submit bugs or your comments to vtex@vtex.lt
+%% Please submit bugs or your comments to latex-support@vtex.lt
 %%
 %% You are free to use this style file as you see fit, provided 
 %% that you do not make changes to the file. 

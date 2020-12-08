@@ -1,7 +1,0 @@
-#+TITLE: spr-chicago bibliography style
-#+OPTIONS: toc:nil
-
-#+BEGIN_EXAMPLE
-\bibliographystyle{spr-chicago}
-\bibliography{<bib-file>}
-#+END_EXAMPLE
